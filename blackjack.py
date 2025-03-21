@@ -2,16 +2,12 @@
 from art import logo
 import random
 
-
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-
-
-
 
 def blackjack():
     want_to_play = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ").lower()
     if want_to_play == "y":
-        print("\n" * 5)
+        print("\n" * 10)
         print(logo)
         try_again = True
 
@@ -22,6 +18,11 @@ def blackjack():
         if player_card == cards[0]:
             if sum(player_cards) > 21:
                 player_cards[-1] = 1
+        dealer_card = random.choice(cards)
+        dealer_cards.append(dealer_card)
+        if dealer_card == cards[0]:
+            if sum(dealer_cards) > 21:
+                dealer_cards[-1] = 1
         if sum(player_cards) == 21:
             print(f"  Your cards: {player_cards}, current score: {sum(player_cards)}")
             print(f"  Computer's first card: {dealer_cards[0]}")
